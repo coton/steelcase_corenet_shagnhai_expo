@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php 
+   header('Content-Type: text/html; charset=utf-8');
+   
+   $language = $_REQUEST['lan'] == null ? "en" : $_REQUEST['lan'];
+   $area = $_REQUEST['area'] == null ? "1" : $_REQUEST['area'];
+?>﻿
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -28,26 +33,43 @@
             <img class="swiper-lazy btn-zh" data-src="images/en/p1/zh.png" alt="">
         </div>
         <div class="swiper-slide p2">
-            <img class="swiper-lazy" data-src="images/en/p2/area-1.png" alt="">
+            <img class="swiper-lazy" data-src="images/<?php echo($language); ?>/p2/area-<?php echo($area); ?>.png" alt="">
             <img class="swiper-lazy btn-checkme" data-src="images/transparent.png" alt="">
         </div>
         <div class="swiper-slide p3">
-            <img class="swiper-lazy" data-src="images/en/p3/area-1.png" alt="">
+            <img class="swiper-lazy" data-src="images/<?php echo($language); ?>/p3/bg.png" alt="">
+            
+            <div class="p3-swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img class="swiper-lazy" data-src="images/en/p3/product-1.png" alt="">   
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="swiper-lazy" data-src="images/en/p3/product-2.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <img class="swiper-lazy btn-prev swiper-button-prev" data-src="images/en/p3/btn-prev.png" alt="">
+            <img class="swiper-lazy btn-next swiper-button-next" data-src="images/en/p3/btn-next.png" alt="">
             <img class="swiper-lazy btn-back" data-src="images/transparent.png" alt="">
             <img class="swiper-lazy btn-goregistration" data-src="images/transparent.png" alt="">
         </div>
         <div class="swiper-slide p4">
-            <img class="swiper-lazy" data-src="images/en/p4/bg.png" alt="">
-            <form action="demo_form.asp" method="get" autocomplete="on">
-                <input type="text" id="name">
-                <input type="text" id="company">
-                <input type="number" id="phone">
-                <input type="email" id="email">
-                <img class="swiper-lazy btn-ok" data-src="images/transparent.png" alt="">
+            <img class="swiper-lazy" data-src="images/<?php echo($language); ?>/p4/bg.png" alt="">
+            <form id="userform" action="adduser.php" method="post" target="id_iframe">
+                <input type="text" id="name" name="name"><p class="name">*</p>
+                <input type="text" id="company" name="company"><p class="company">*</p>
+                <input type="number" id="phone" name="phone"><p class="phone">*</p>
+                <input type="email" id="email" name="email"><p class="email">*</p>
+                <input type="hidden" name="area" value="<?php echo($area); ?>">
+                <input type="hidden" name="product" value="enea lottus stool">
+                <input type="button" class="btn-ok" value="">
             </form>
+            <iframe id="id_iframe" name="id_iframe" style=""></iframe>
         </div>
         <div class="swiper-slide p5">
-            <img class="swiper-lazy" data-src="images/en/p5/bg.png" alt="">
+            <img class="swiper-lazy" data-src="images/<?php echo($language); ?>/p5/bg.png" alt="">
             <img class="swiper-lazy btn-products" data-src="images/transparent.png" alt="">
         </div>
 
@@ -63,6 +85,7 @@
 <script src="js/swiper/swiper.min.js?v=a69bacdcec1841aea678078d318b4709"></script>
 <script src="js/swiper/swiper.animate1.0.2.min.js?v=a69bacdcec1841aea678078d318b4709"></script>
 <script src="js/motion/landscape.min.js?v=a69bacdcec1841aea678078d318b4709"></script>
+<script src="data.js?v=a69bacdcec1841aea678078d318b4709"></script>
 <script type="text/javascript">
     Zepto(function($){
 
@@ -82,7 +105,7 @@
                 }, 
                 onSlideChangeEnd: function(swiper){
                     swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
-                    //mySwiper.lockSwipes();
+                    mySwiper.lockSwipes();
                 } 
             });
         };
@@ -150,8 +173,50 @@
 
         // p4
         $('.btn-ok').on('touchend', function(){
-            mySwiper.unlockSwipes();
-            mySwiper.slideNext();
+
+
+            if($(".name").css("display") == "none"
+                 && $(".company").css("display") == "none"
+                 && $(".phone").css("display") == "none"
+                 && $(".email").css("display") == "none"
+                 )
+            {
+                $("#userform").submit();
+
+                mySwiper.unlockSwipes();
+                mySwiper.slideNext();
+            }
+            
+        });
+
+        $("#name").on("change", function(){
+            if(this.value)
+                $(".name").css("display", "none");
+            else
+                $(".name").css("display", "block");
+        });
+
+        $("#company").on("change", function(){
+            if(this.value)
+                $(".company").css("display", "none");
+            else
+                $(".company").css("display", "block");
+        });
+
+        $("#phone").on("change", function(){
+            var patt = new RegExp(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/);
+            if(patt.test(this.value))
+                $(".phone").css("display", "none");
+            else
+                $(".phone").css("display", "block");
+        });
+
+        $("#email").on("change", function(){
+            var patt = new RegExp(/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/);
+            if(patt.test(this.value))
+                $(".email").css("display", "none");
+            else
+                $(".email").css("display", "block");
         });
 
 
@@ -159,6 +224,15 @@
         $('.btn-products').on('touchend', function(){
             mySwiper.unlockSwipes();
             mySwiper.slideTo(2);
+        });
+
+
+
+        // data
+        var mySwiper1 = new Swiper('.p3-swiper-container',{
+            lazyLoading : true,
+            prevButton:'.swiper-button-prev',
+            nextButton:'.swiper-button-next'
         });
 
     });
