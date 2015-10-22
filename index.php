@@ -78,7 +78,7 @@
                 <input type="hidden" name="product" id="product" value="after set value">
                 <input type="button" class="btn-ok" value="">
             </form>
-            <iframe id="id_iframe" name="id_iframe" style=""></iframe>
+            <iframe id="id_iframe" name="id_iframe"></iframe>
         </div>
         <div class="swiper-slide p5">
             <img class="swiper-lazy" src="images/en/p5/bg.png" alt="">

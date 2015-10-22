@@ -52,6 +52,7 @@ body{background:#000;background:-webkit-gradient(radial,center center,120,center
 .p4 .company{position: absolute; top:414px; left: 415px; width: 175px; height: 30px; }
 .p4 .phone{position: absolute; top:482px; left: 415px; width: 175px; height: 30px; }
 .p4 .email{position: absolute; top:548px; left: 415px; width: 175px; height: 30px;}
+.p4 iframe{width: 0px; height: 0px; display: none; border: 0px; margin: 0px; padding: 0px;}
 
 /* p5 */
 .p5 .btn-products{position: absolute; top:13px; left: 15px; width: 150px; height: 20px; }
