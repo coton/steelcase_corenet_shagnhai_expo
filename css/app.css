@@ -36,10 +36,10 @@ body{background:#000;background:-webkit-gradient(radial,center center,120,center
 
 /* p3 */
 .p3 .btn-back{position: absolute; top:13px; left: 15px; width: 70px; height: 20px; }
-.p3 .btn-prev{position: absolute; top:120px; left: 55px; z-index:9;} 
-.p3 .btn-next{position: absolute; top:120px; left: 400px; z-index:9;}
+.p3 .btn-prev{position: absolute; top:112px; left: 57px; z-index:9;} 
+.p3 .btn-next{position: absolute; top:112px; left: 391px; z-index:9;}
 .p3 .btn-goregistration{position: absolute; top:625px; left: 105px; width: 270px; height: 35px; }
-.p3 .p3-swiper-container{position: absolute; top:105px; left:51px; width:379px; height:528px; z-index:-1; background-color: #fff;}
+.p3 .p3-swiper-container{position: absolute; top:69px; left:51px; width:404px; height:556px; z-index:-1; background-color: #fff;}
 
 /* p4 */
 .p4 .btn-ok{position: absolute; top:625px; left: 195px; width: 90px; height: 40px; background: url(../images/transparent.png) no-repeat; border: 0px solid red;}

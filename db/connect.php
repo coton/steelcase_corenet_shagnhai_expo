@@ -1,8 +1,8 @@
 <?php 
 
     $mysql_server_name='localhost'; 
-    $mysql_username='root'; 
-    $mysql_password='root'; 
+    $mysql_username='steelcase'; 
+    $mysql_password='steelcase';
     $mysql_database='steelcase';
   
     

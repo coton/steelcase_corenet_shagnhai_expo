@@ -1,5 +1,4 @@
 <?php 
-	$gURL = "http://www.createcdigital.com/steelcase-hbr-h5-app/";
 
     // Wechat自定义分享内容
     $gWECHATSHARETITLE = "Steelcase";
