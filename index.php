@@ -1,4 +1,5 @@
 <?php
+    header('Content-Type: text/html; charset=utf-8');
     header("Access-Control-Allow-Origin:*");
     header('Access-Control-Allow-Credentials:true');
 
@@ -45,8 +46,9 @@
             <img class="swiper-lazy btn-zh" data-src="images/p1/zh.png" alt="">
         </div>
         <div class="swiper-slide p2">
-            <img class="swiper-lazy" src="images/en/p2/area-<?php echo($set); ?>.png" alt="">
-            <img class="swiper-lazy btn-checkme" data-src="images/transparent.png" alt="">
+            <div class="area<?php echo($set); ?>">
+                <img src="images/en/p2/area<?php echo($set); ?>/bg.png" alt="">
+            </div>
         </div>
         <div class="swiper-slide p3">
             <img class="swiper-lazy" src="images/en/p3/bg.png" alt="">
@@ -125,6 +127,8 @@
             mySwiper.lockSwipes();
 
             load_productlist_swiper(<?php echo($set); ?>);
+            load_p2_html(<?php echo($set); ?>);
+            load_p2_click(<?php echo($set); ?>);
         };
 
         // sub page
@@ -151,6 +155,33 @@
             });
         };
 
+        // load p2
+        var load_p2_html = function(set){
+            var productlist_data = APP_DATA[set-1];
+            var html = "";
+            var item_html_format = '<img class="checkme-{0}"'
+                                + ' src="images/en/p2/area<?php echo($set); ?>/checkme-{0}.png" alt="{1}">';
+
+            for(var i = 0; i< productlist_data.checkme.length; i++)
+            {
+                html += item_html_format.replace(/\{0\}/g, i+1)
+                                        .replace(/\{1\}/g, productlist_data.checkme[i]-1);
+            }
+            $(".p2>.area<?php echo($set); ?>").append(html);
+
+        };
+
+        var load_p2_click = function(set){
+            $(".area" + set+">img").each(function(i, o){
+                $(o).on('touchend', function(){
+                    mySwiper1.slideTo(parseInt($(this).attr("alt")));
+
+                    mySwiper.unlockSwipes();
+                    mySwiper.slideNext();
+                });
+            });
+        };
+
         // loader
         var getSource = function(){
             var res = []
@@ -160,12 +191,10 @@
             });
 
             // loader big file
-            res.push("images/en/p2/area-<?php echo($set); ?>.png");
             res.push("images/en/p3/bg.png");
             res.push("images/en/p4/bg.png");
             res.push("images/en/p5/bg.png");
 
-            res.push("images/zh/p2/area-<?php echo($set); ?>.png");
             res.push("images/zh/p3/bg.png");
             res.push("images/zh/p4/bg.png");
             res.push("images/zh/p5/bg.png");
@@ -221,10 +250,6 @@
         };
 
         // p2
-        $('.btn-checkme').on('touchend', function(){
-            mySwiper.unlockSwipes();
-            mySwiper.slideNext();
-        });
 
         // p3
         $('.btn-back').on('touchend', function(){

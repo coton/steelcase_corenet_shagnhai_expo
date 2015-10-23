@@ -4,7 +4,7 @@
  -- create user
  GRANT USAGE ON *.* TO 'steelcase'@'localhost' IDENTIFIED BY 'steelcase' WITH GRANT OPTION;
  -- create database
- CREATE DATABASE steelcase;
+ CREATE DATABASE steelcase CHARACTER SET  utf8  COLLATE utf8_general_ci;
  -- grant user 权限1,权限2,select,insert,update,delete,create,drop,index,alter,grant,references,reload,shutdown,process,file等14个权限
  GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON steelcase.*  TO 'steelcase'@'localhost' IDENTIFIED BY 'steelcase';
 
@@ -17,8 +17,8 @@
 */
 create table user (
 id INT(19) NOT NULL auto_increment COMMENT 'ID标识',
-name VARCHAR(8) NOT NULL COMMENT '姓名',
-company VARCHAR(16) NOT NULL COMMENT '公司信息',
+name VARCHAR(128) NOT NULL COMMENT '姓名',
+company VARCHAR(128) NOT NULL COMMENT '公司信息',
 phone CHAR(11) NOT NULL COMMENT '电话号码',
 email VARCHAR(128) NOT NULL COMMENT 'Email邮箱',
 area VARCHAR(2) NOT NULL COMMENT '来自哪个区域',

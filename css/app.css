@@ -34,6 +34,48 @@ body{background:#000;background:-webkit-gradient(radial,center center,120,center
 .p2 .area{position: absolute; top:270px; left: 60px;}
 .p2 .btn-checkme{position: absolute; top:210px; left: 35px; width: 410px; }
 
+.p2 .area1 .checkme-1{position: absolute; top:217px; left: 54px;}
+.p2 .area1 .checkme-2{position: absolute; top:554px; left: 177px;}
+.p2 .area1 .checkme-3{position: absolute; top:270px; left: 313px;}
+
+.p2 .area2 .checkme-1{position: absolute; top:261px; left: 33px;}
+.p2 .area2 .checkme-2{position: absolute; top:573px; left: 103px;}
+.p2 .area2 .checkme-3{position: absolute; top:325px; left: 124px;}
+.p2 .area2 .checkme-4{position: absolute; top:245px; left: 264px;}
+.p2 .area2 .checkme-5{position: absolute; top:499px; left: 320px;}
+
+.p2 .area3 .checkme-1{position: absolute; top:258px; left: 55px;}
+.p2 .area3 .checkme-2{position: absolute; top:584px; left: 205px;}
+.p2 .area3 .checkme-3{position: absolute; top:502px; left: 319px;}
+.p2 .area3 .checkme-4{position: absolute; top:230px; left: 292px;}
+
+.p2 .area4 .checkme-1{position: absolute; top:217px; left: 54px;}
+.p2 .area4 .checkme-2{position: absolute; top:554px; left: 177px;}
+.p2 .area4 .checkme-3{position: absolute; top:270px; left: 313px;}
+
+.p2 .area5 .checkme-1{position: absolute; top:505px; left: 60px;}
+.p2 .area5 .checkme-2{position: absolute; top:260px; left: 192px;}
+.p2 .area5 .checkme-3{position: absolute; top:543px; left: 288px;}
+
+.p2 .area6 .checkme-1{position: absolute; top:288px; left: 33px;}
+.p2 .area6 .checkme-2{position: absolute; top:515px; left: 62px;}
+.p2 .area6 .checkme-3{position: absolute; top:238px; left: 155px;}
+.p2 .area6 .checkme-4{position: absolute; top:530px; left: 185px;}
+.p2 .area6 .checkme-5{position: absolute; top:528px; left: 301px;}
+
+.p2 .area7 .checkme-1{position: absolute; top:518px; left: 33px;}
+.p2 .area7 .checkme-2{position: absolute; top:578px; left: 166px;}
+.p2 .area7 .checkme-3{position: absolute; top:295px; left: 128px;}
+.p2 .area7 .checkme-4{position: absolute; top:243px; left: 245px;}
+.p2 .area7 .checkme-5{position: absolute; top:543px; left: 312px;}
+
+.p2 .area8 .checkme-1{position: absolute; top:510px; left: 63px;}
+.p2 .area8 .checkme-2{position: absolute; top:486px; left: 150px;}
+.p2 .area8 .checkme-3{position: absolute; top:232px; left: 168px;}
+.p2 .area8 .checkme-4{position: absolute; top:282px; left: 274px;}
+.p2 .area8 .checkme-5{position: absolute; top:585px; left: 295px;}
+
+
 /* p3 */
 .p3 .btn-back{position: absolute; top:13px; left: 15px; width: 70px; height: 20px; }
 .p3 .btn-prev{position: absolute; top:112px; left: 57px; z-index:9;} 
