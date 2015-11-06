@@ -6,7 +6,7 @@
  -- create database
  CREATE DATABASE steelcase CHARACTER SET  utf8  COLLATE utf8_general_ci;
  -- grant user 权限1,权限2,select,insert,update,delete,create,drop,index,alter,grant,references,reload,shutdown,process,file等14个权限
- GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON steelcase.*  TO 'steelcase'@'localhost' IDENTIFIED BY 'steelcase';
+ GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,LOCK TABLES ON steelcase.*  TO 'steelcase'@'localhost' IDENTIFIED BY 'steelcase';
 
  /*================================= 建立表、表主外键、多表关联等T-SQL*/
  -- 改变当前数据库
