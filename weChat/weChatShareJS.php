@@ -1,8 +1,8 @@
-<?php
-    require_once "weChatId.php";
-    require_once "weChat.php";
-    require_once "config.php";
-?>﻿
+<?php 
+    include_once 'config.php'; 
+    include_once 'weChatId.php';
+    include_once 'weChat.php'; 
+?>
 <!--WeChat
 ====================================================== -->
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -33,12 +33,12 @@
         // 在这里调用 API
         wx.onMenuShareTimeline({
             title: '<?php echo $gWECHATSHAREDESCFORMOMENTS;?>', // 分享标题
-            link: window.location.href, // 分享链接
+            link: '<?php echo $gWECHATSHAREURL?>', // 分享链接
             imgUrl: '<?php echo $gWECHATSHAREIMGURL;?>', // 分享图标
             success: function () {
                 // 用户确认分享后执行的回调函数
                 
-                page.postDataShare('share to Timeline');
+                tracking.share('share to Timeline');
             },
             cancel: function () {
                 // 用户取消分享后执行的回调函数
@@ -48,14 +48,14 @@
         wx.onMenuShareAppMessage({
             title: '<?php echo $gWECHATSHARETITLE;?>', // 分享标题
             desc: '<?php echo $gWECHATSHAREDESC;?>', // 分享描述
-            link: window.location.href, // 分享链接
+            link: '<?php echo $gWECHATSHAREURL?>', // 分享链接
             imgUrl: '<?php echo $gWECHATSHAREIMGURL;?>', // 分享图标
             type: '', // 分享类型,music、video或link，不填默认为link
             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
             success: function () {
                 // 用户确认分享后执行的回调函数
                
-                page.postDataShare('share to friend');
+                tracking.share('share to friend');
             },
             cancel: function () {
                 // 用户取消分享后执行的回调函数
@@ -65,12 +65,12 @@
         wx.onMenuShareQQ({
             title: '<?php echo $gWECHATSHARETITLE;?>', // 分享标题
             desc: '<?php echo $gWECHATSHAREDESC;?>', // 分享描述
-            link: window.location.href, // 分享链接
+            link: '<?php echo $gWECHATSHAREURL?>', // 分享链接
             imgUrl: '<?php echo $gWECHATSHAREIMGURL;?>', // 分享图标
             success: function () {
                 // 用户确认分享后执行的回调函数
                 
-                page.postDataShare('share to qq');
+                tracking.share('share to qq');
                 //page.postData('share to qq');
             },
             cancel: function () {
@@ -80,12 +80,12 @@
         wx.onMenuShareWeibo({
             title: '<?php echo $gWECHATSHARETITLE;?>', // 分享标题
             desc: '<?php echo $gWECHATSHAREDESC;?>', // 分享描述
-            link: window.location.href, // 分享链接
+            link: '<?php echo $gWECHATSHAREURL?>', // 分享链接
             imgUrl: '<?php echo $gWECHATSHAREIMGURL;?>', // 分享图标
             success: function () {
                 // 用户确认分享后执行的回调函数
                 
-                page.postDataShare('share to weibo');
+                tracking.share('share to weibo');
             },
             cancel: function () {
                 // 用户取消分享后执行的回调函数

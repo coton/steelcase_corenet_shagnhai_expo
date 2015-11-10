@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Steelcase</title>
+	<title>Steelcase CoreNet Shanghai Expo 2015</title>
 
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=480, user-scalable=no"/>
@@ -25,7 +25,7 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?5bc5881ed3bdba8e4d8b0d5f8df3bc4b";
+      hm.src = "//hm.baidu.com/hm.js?18f2f48fc1cbf1f036214828d65d9759";
       var s = document.getElementsByTagName("script")[0]; 
       s.parentNode.insertBefore(hm, s);
     })();
@@ -58,9 +58,6 @@
                     <div class="swiper-slide">
                         <img class="swiper-lazy" src="images/en/p3/area<?php echo($set); ?>/product-1.png" alt="">   
                     </div>
-                    <div class="swiper-slide">
-                        <img class="swiper-lazy" src="images/en/p3/area<?php echo($set); ?>/product-2.png" alt="">
-                    </div>
                 </div>
             </div>
 
@@ -68,6 +65,12 @@
             <img class=" btn-next swiper-button-next" src="images/en/p3/btn-next.png" alt="">
             <img class="swiper-lazy btn-back" data-src="images/transparent.png" alt="">
             <img class="swiper-lazy btn-goregistration" data-src="images/transparent.png" alt="">
+        </div>
+        <div class="swiper-slide p3-1">
+            <img class="swiper-lazy" src="images/en/p3-1/bg.png" alt="">
+            <img class="swiper-lazy btn-gosteelcase" data-src="images/transparent.png" alt="">
+            <img class="swiper-lazy btn-flowwechat" data-src="images/transparent.png" alt="">
+            <img class="swiper-lazy btn-goregister" data-src="images/transparent.png" alt="">
         </div>
         <div class="swiper-slide p4">
             <img class="swiper-lazy" src="images/en/p4/bg.png" alt="">
@@ -84,6 +87,7 @@
         </div>
         <div class="swiper-slide p5">
             <img class="swiper-lazy" src="images/en/p5/bg.png" alt="">
+            <img class="swiper-lazy qr" data-src="images/en/p5/qr.png" alt="">
             <img class="swiper-lazy btn-products" data-src="images/transparent.png" alt="">
         </div>
 
@@ -99,6 +103,8 @@
 <script src="js/swiper/swiper.min.js?v=a69bacdcec1841aea678078d318b4709"></script>
 <script src="js/swiper/swiper.animate1.0.2.min.js?v=a69bacdcec1841aea678078d318b4709"></script>
 <script src="js/motion/landscape.min.js?v=a69bacdcec1841aea678078d318b4709"></script>
+<script src="js/motion/overlay.min.js?v=a69bacdcec1841aea678078d318b4709"></script>
+<script src="tracking/tracking.js?v=a69bacdcec1841aea678078d318b4709"></script>
 <script src="data.js?v=a69bacdcec1841aea678078d318b4709"></script>
 <script type="text/javascript">
     Zepto(function($){
@@ -230,15 +236,22 @@
             convert_language(/images\/zh\//g, "images/en/");
 
             mySwiper.unlockSwipes();
-            mySwiper.slideNext();
+            
 
+            if("<?php echo($set); ?>" == "9")
+                mySwiper.slideTo(2);
+            else
+                mySwiper.slideNext();
         });
 
         $('.btn-zh').on('touchend', function(){
             convert_language(/images\/en\//g, "images/zh/");
 
             mySwiper.unlockSwipes();
-            mySwiper.slideNext();
+            if("<?php echo($set); ?>" == "9")
+                mySwiper.slideTo(2);
+            else
+                mySwiper.slideNext();
         });
 
         var convert_language = function(source, target){
@@ -249,22 +262,53 @@
             });
         };
 
-        // p2
-
         // p3
         $('.btn-back').on('touchend', function(){
             mySwiper.unlockSwipes();
-            mySwiper.slidePrev();
+            
+            if("<?php echo($set); ?>" == "9")
+                mySwiper.slideTo(0);
+            else
+                mySwiper.slidePrev();
         });
 
         $('.btn-goregistration').on('touchend', function(){
             mySwiper.unlockSwipes();
             mySwiper.slideNext();
 
+
             // set active product
             var product = $(".p3-swiper-container .swiper-slide-active>img").attr("alt");
             $("#product").val(product);
         });
+
+        // p3-1
+        $('.btn-gosteelcase').on('touchend', function(){
+            if($($(".p3-1 img")[0]).attr("src").indexOf("en") > -1)
+                window.location.href = "http://www.steelcase.com/asia-en/";
+            else
+                window.location.href = "http://www.steelcase.com/asia-zh/";
+        });
+
+        $('.btn-flowwechat').on('touchend', function(){
+            window.overlay1 = new mo.Overlay('<img class="flowwechat" src="images/en/p3-1/qr.png" >');
+            overlay1.on('open', function(){
+                tracking.add("flowsteelcase");
+
+                $('.flowwechat').on('touchend', function(){
+                    window.overlay1.close();
+                });
+            })
+        });
+
+        $('.btn-goregister').on('touchend', function(){
+            mySwiper.unlockSwipes();
+            mySwiper.slideNext();
+
+            // default form foucs
+            $("#name").trigger('focus');
+        });
+
 
         // p4
         $('.btn-ok').on('touchend', function(){
@@ -322,10 +366,10 @@
         });
 
 
+
     });
 </script>
 
-
-<?php require_once "weChat/weChatShareJS.php"; ?>﻿
+<?php include_once 'weChat/weChatShareJS.php'; ?>
 </body>
 </html>

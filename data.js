@@ -7,5 +7,6 @@ var APP_DATA = [
                     {set: 5, checkme:[1, 2, 1], product: ["hosu lounge", "sebastopol table"]},
                     {set: 6, checkme:[2, 2, 1, 2, 3], product: ["campfire big table", "cobi stool", "media:scape mobile"]},
                     {set: 7, checkme:[1, 1, 2, 1, 1], product: ["SW1 chair", "SW1 table"]},
-                    {set: 8, checkme:[1, 3, 2, 2, 1], product: ["media:scape lounge with hood", "personal table", "paper table"]}
+                    {set: 8, checkme:[1, 3, 2, 2, 1], product: ["media:scape lounge with hood", "personal table", "paper table"]},
+                    {set: 9, checkme:[], product: ["Buoy"]},
                 ];
