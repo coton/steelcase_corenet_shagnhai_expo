@@ -84,12 +84,14 @@ body{background:#000;background:-webkit-gradient(radial,center center,120,center
 .p3 .p3-swiper-container{position: absolute; top:69px; left:51px; width:404px; height:556px; z-index:-1; background-color: #fff;}
 
 /* p3-1 */
+.p3-1 .btn-back{position: absolute; top:45px; left: 15px; width: 70px; height: 20px;}
 .p3-1 .btn-gosteelcase{position: absolute; top:179px; left: 85px; width: 310px; height: 60px; }
 .p3-1 .btn-flowwechat{position: absolute; top:325px; left: 85px; width: 310px; height: 60px; }
 .p3-1 .btn-goregister{position: absolute; top:472px; left: 85px; width: 310px; height: 60px; }
 .pop-flowwechat{position: absolute; top:202px; left: 55px; width: 480px;}
 
 /* p4 */
+.p4 .btn-back{position: absolute; top:45px; left: 15px; width: 70px; height: 20px;}
 .p4 .btn-ok{position: absolute; top:625px; left: 195px; width: 90px; height: 40px; background: url(../images/transparent.png) no-repeat; border: 0px solid red;}
 .p4 #name{position: absolute; top:347px; left: 218px; width: 175px; height: 30px; border:0px; color:#fd6b0d; font-size: 20px;}
 .p4 #company{position: absolute; top:414px; left: 218px; width: 175px; height: 30px; border:0px; color:#fd6b0d; font-size: 20px;}

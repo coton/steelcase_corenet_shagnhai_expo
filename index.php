@@ -68,12 +68,14 @@
         </div>
         <div class="swiper-slide p3-1">
             <img class="swiper-lazy" src="images/en/p3-1/bg.png" alt="">
+            <img class="swiper-lazy btn-back" data-src="images/transparent.png" alt="">
             <img class="swiper-lazy btn-gosteelcase" data-src="images/transparent.png" alt="">
             <img class="swiper-lazy btn-flowwechat" data-src="images/transparent.png" alt="">
             <img class="swiper-lazy btn-goregister" data-src="images/transparent.png" alt="">
         </div>
         <div class="swiper-slide p4">
             <img class="swiper-lazy" src="images/en/p4/bg.png" alt="">
+            <img class="swiper-lazy btn-back" data-src="images/transparent.png" alt="">
             <form id="userform" action="adduser.php" method="post" target="id_iframe">
                 <input type="text" id="name" name="name"><p class="name">*</p>
                 <input type="text" id="company" name="company"><p class="company">*</p>
@@ -263,7 +265,7 @@
         };
 
         // p3
-        $('.btn-back').on('touchend', function(){
+        $('.p3 .btn-back').on('touchend', function(){
             mySwiper.unlockSwipes();
             
             if("<?php echo($set); ?>" == "9")
@@ -283,6 +285,11 @@
         });
 
         // p3-1
+        $('.p3-1 .btn-back').on('touchend', function(){
+            mySwiper.unlockSwipes();
+            mySwiper.slidePrev();
+        });
+
         $('.btn-gosteelcase').on('touchend', function(){
             if($($(".p3-1 img")[0]).attr("src").indexOf("en") > -1)
                 window.location.href = "http://www.steelcase.com/asia-en/";
@@ -311,6 +318,11 @@
 
 
         // p4
+        $('.p4 .btn-back').on('touchend', function(){
+            mySwiper.unlockSwipes();
+            mySwiper.slidePrev();
+        });
+
         $('.btn-ok').on('touchend', function(){
 
 
