@@ -291,10 +291,13 @@
         });
 
         $('.btn-gosteelcase').on('touchend', function(){
-            if($($(".p3-1 img")[0]).attr("src").indexOf("en") > -1)
-                window.location.href = "http://www.steelcase.com/asia-en/";
-            else
-                window.location.href = "http://www.steelcase.com/asia-zh/";
+            //if($($(".p3-1 img")[0]).attr("src").indexOf("en") > -1)
+            var product_name = $("#product").val();
+
+            $.each(APP_PRODUCT_LINK, function(i, o){
+                if(o.name == product_name)
+                    window.location.href = o.enlink;
+            });
         });
 
         $('.btn-flowwechat').on('touchend', function(){
