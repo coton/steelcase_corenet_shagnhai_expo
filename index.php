@@ -79,7 +79,7 @@
             <form id="userform" action="adduser.php" method="post" target="id_iframe">
                 <input type="text" id="name" name="name"><p class="name">*</p>
                 <input type="text" id="company" name="company"><p class="company">*</p>
-                <input type="number" id="phone" name="phone"><p class="phone">*</p>
+                <input type="text" id="phone" name="phone"><p class="phone">*</p>
                 <input type="email" id="email" name="email"><p class="email">*</p>
                 <input type="hidden" name="area" value="<?php echo($set); ?>">
                 <input type="hidden" name="product" id="product" value="after set value">
@@ -358,8 +358,8 @@
         });
 
         $("#phone").on("change", function(){
-            var patt = new RegExp(/^[0-9]*$/);
-            if(patt.test(this.value))
+            //var patt = new RegExp(/^[0-9]*$/);
+            if(this.value)
                 $(".phone").css("display", "none");
             else
                 $(".phone").css("display", "block");
