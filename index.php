@@ -358,7 +358,7 @@
         });
 
         $("#phone").on("change", function(){
-            var patt = new RegExp(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/);
+            var patt = new RegExp(/^[0-9]*$/);
             if(patt.test(this.value))
                 $(".phone").css("display", "none");
             else
